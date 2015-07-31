@@ -8,15 +8,21 @@ Clone this repo and from the root of the repo, run
     $ docker build -t cloudlaunch .
 
 ## Run a container
-To get an instance of the container, run
+To get an instance of the container, run (having set the password as desired)
 
-    $ docker run --name='cl' -d -p 8000:80 cloudlaunch
+    $ docker run --name='cl' -e "ADMIN_PASS=some_pwd" -d -p 8000:80 cloudlaunch
 
 This will launch the container and the Cloud Launch web interface will be
-available from your local machine at `http://localhost:8000/launch`.
+available from your local machine at `http://localhost:8000/launch`. The Admin
+interface will be available under `http://localhost:8000/admin/` and you can
+log in with user name `admin` and password you set when you launced the
+container.
 
-Note that there's a bug in the configuration and/or build process
-so you may need to refresh the page to get the UI to show up.
+**Note** that there's a bug in the configuration and/or build process
+that will redirect you from port 8000 to 80 on many pages. So when you get a
+`This page is not available (connection refused)` error, just add `:8000` to the
+hostname and refresh the page.
+
 Also, if you are on OS X and using boot2docker, you need to open a new terminal
 window and execute the following command to allow port forwarding (see [here][1]
 for more info about this):

@@ -31,7 +31,7 @@ RUN rm /etc/nginx/sites-enabled/default && \
     ln -s /etc/nginx/sites-available/cl_nginx.conf /etc/nginx/sites-enabled/cl
 
 ADD ./supervisor.conf /etc/supervisor/supervisor.conf
-RUN cp /srv/cloudlaunch/cloudlaunch/cl_supervisor.conf /etc/supervisor/conf.d/
+RUN cp /srv/cloudlaunch/cloudlaunch/cl_supervisor.conf /etc/supervisor/conf.d/cloudlaunch.conf
 
 USER launch
 
